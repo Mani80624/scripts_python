@@ -23,7 +23,7 @@ move_dir(path_orige=paths.path_orige, path_destine=paths.destine_path_Ca_test_LE
 move_dir(path_orige=paths.path_orige, path_destine=paths.destine_path_Ca_test_RIGHT, 
          list_elements=regex.Ca_tes_p_right)
 
-# Mass-Test and Trining
+# Mass-Test and Training
 move_dir(path_orige=paths.path_orige, path_destine=paths.destine_path_Mass_trai_LEFT, 
          list_elements=regex.Ma_tr_p_left)
 move_dir(path_orige=paths.path_orige, path_destine=paths.destine_path_Mass_trai_RIGHT, 

@@ -21,18 +21,10 @@ class Regex:
         self.Mass_test_p_RIGHT = re.compile(r'^Mass-Test.*RIGHT_CC$')
         self.paths = Paths()
 
-    def listas(self):
+    def listas(self, regular_expresion):
         """This function is used for create lists in regex (regular expression)"""
         # Origin Path list
         folders = listar_carpetas(self.paths.path_orige)
-        # Lists Calc
-        self.Ca_tr_p_left = [folder for folder in folders if self.Ca_trai_p_LEFT.match(folder)]
-        self.Ca_tr_p_right = [folder for folder in folders if self.Ca_trai_p_RIGHT.match(folder)]
-        self.Ca_tes_p_left = [folder for folder in folders if self.Ca_test_p_LEFT.match(folder)]
-        self.Ca_tes_p_right = [folder for folder in folders if self.Ca_test_p_RIGHT.match(folder)]
+        lista_regular = [folder for folder in folders if regular_expresion.match(folder)]
         
-        # List Mass
-        self.Ma_tr_p_left = [folder for folder in folders if self.Mass_trai_p_LEFT.match(folder)]
-        self.Ma_tr_p_right = [folder for folder in folders if self.Mass_trai_p_RIGHT.match(folder)]
-        self.Ma_te_p_left = [folder for folder in folders if self.Mass_test_p_LEFT.match(folder)]
-        self.Ma_te_p_right = [folder for folder in folders if self.Mass_test_p_RIGHT.match(folder)]
+        return lista_regular

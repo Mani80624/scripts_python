@@ -9,26 +9,17 @@ from regex import Regex
 paths = Paths()
 regex = Regex()
 
-# Create the lists of regex aplication
-regex.listas()
+dict_paths = {
+            'CALC/TRAINING/LEFT':regex.listas(regex.Ca_trai_p_LEFT), 
+            'CALC/TRAINING/RIGHT':regex.listas(regex.Ca_trai_p_RIGHT), 
+            'CALC/TEST/LEFT':regex.listas(regex.Ca_test_p_LEFT), 
+            'CALC/TEST/RIGHT':regex.listas(regex.Ca_test_p_RIGHT), 
+            'MASS/TRAINING/LEFT': regex.listas(regex.Mass_trai_p_LEFT), 
+            'MASS/TRAINING/RIGHT': regex.listas(regex.Mass_trai_p_RIGHT),
+            'MASS/TEST/LEFT': regex.listas(regex.Mass_test_p_LEFT), 
+            'MASS/TEST/RIGHT': regex.listas(regex.Mass_test_p_RIGHT),
+}
 
-# Move orige directories to destine directories.
-# Calc-Test and Training
-move_dir(path_orige=paths.path_orige, path_destine=paths.destine_path_Ca_trai_LEFT, 
-         list_elements=regex.Ca_tr_p_left)
-move_dir(path_orige=paths.path_orige, path_destine=paths.destine_path_Ca_trai_RIGHT, 
-         list_elements=regex.Ca_tr_p_right)
-move_dir(path_orige=paths.path_orige, path_destine=paths.destine_path_Ca_test_LEFT, 
-         list_elements=regex.Ca_tes_p_left)
-move_dir(path_orige=paths.path_orige, path_destine=paths.destine_path_Ca_test_RIGHT, 
-         list_elements=regex.Ca_tes_p_right)
-
-# Mass-Test and Training
-move_dir(path_orige=paths.path_orige, path_destine=paths.destine_path_Mass_trai_LEFT, 
-         list_elements=regex.Ma_tr_p_left)
-move_dir(path_orige=paths.path_orige, path_destine=paths.destine_path_Mass_trai_RIGHT, 
-         list_elements=regex.Ma_tr_p_right)
-move_dir(path_orige=paths.path_orige, path_destine=paths.destine_path_Mass_test_LEFT, 
-         list_elements=regex.Ma_te_p_left)
-move_dir(path_orige=paths.path_orige, path_destine=paths.destine_path_Mass_test_RIGHT, 
-         list_elements=regex.Ma_te_p_right)
+for destine, other_re in dict_paths.items():
+    move_dir(path_orige=paths.path_orige, path_destine=paths.destinePath(destine),
+             list_elements=other_re)
